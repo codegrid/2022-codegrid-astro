@@ -1,0 +1,29 @@
+---
+import { HamburgerMenu } from "../components/hamburger-menu";
+const title = Astro.props.title;
+const links = [
+  { href: "/", label: "トップ" },
+  { href: "/about", label: "アバウト" },
+  { href: "/contact", label: "お問合せ" },
+];
+---
+
+<nav class='bg-orange-200 flex justify-between items-center p-8'>
+  <h1 class='text-xl'>
+    {title}
+  </h1>
+  <ul class='hidden md:flex gap-3'>
+    {
+      links.map((item) => (
+        <li>
+          <a href={item.href} class='text-blue-700 hover:underline'>
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class='md:hidden'>
+    <HamburgerMenu links={links} client:visible />
+  </div>
+</nav>
