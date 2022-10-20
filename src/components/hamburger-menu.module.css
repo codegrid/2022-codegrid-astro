@@ -1,0 +1,26 @@
+.button {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+}
+.border {
+  width: 30px;
+  height: 1px;
+  background-color: black;
+}
+.menu {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  left: 0;
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  list-style: none;
+}
