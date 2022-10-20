@@ -1,5 +1,5 @@
 ---
-import { HamburgerMenu } from "../components/hamburger-menu";
+import { HamburgerMenu } from "../components/hamburger-menu.jsx";
 const title = Astro.props.title;
 const links = [
   { href: "/", label: "トップ" },
@@ -8,22 +8,43 @@ const links = [
 ];
 ---
 
-<nav class='bg-orange-200 flex justify-between items-center p-8'>
-  <h1 class='text-xl'>
-    {title}
-  </h1>
-  <ul class='hidden md:flex gap-3'>
+<nav class='header'>
+  <h1>{title}</h1>
+  <ul class='links'>
     {
-      links.map((item) => (
+      links.map((link) => (
         <li>
-          <a href={item.href} class='text-blue-700 hover:underline'>
-            {item.label}
-          </a>
+          <a href={link.href}>{link.label}</a>
         </li>
       ))
     }
   </ul>
-  <div class='md:hidden'>
+  <div class='hamburgerMenu'>
     <HamburgerMenu links={links} client:visible />
   </div>
 </nav>
+<style>
+  .header {
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+  }
+  .links {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+  }
+  .hamburgerMenu {
+    display: none;
+  }
+  @media screen and (max-width: 768px) {
+    .hamburgerMenu {
+      display: block;
+    }
+    .links {
+      display: none;
+    }
+  }
+</style>

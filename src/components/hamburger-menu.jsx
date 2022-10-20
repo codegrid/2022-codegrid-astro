@@ -1,28 +1,56 @@
 import { useState } from "preact/hooks";
+
 export const HamburgerMenu = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <button
+        style={styles.button}
         type='button'
         onClick={() => setIsOpen((bool) => !bool)}
-        className='flex flex-col gap-1 cursor-pointer relative'
       >
-        {[...Array(3)].map((_, index) => (
-          <span key={index} className='w-7 h-px bg-black block'></span>
-        ))}
+        <span style={styles.border}></span>
+        <span style={styles.border}></span>
+        <span style={styles.border}></span>
       </button>
       {isOpen && (
-        <ul className='absolute w-screen inset-x-0 bg-orange-200 flex flex-col gap-2 top-20'>
+        <ul style={styles.menu}>
           {links.map((link) => (
             <li>
-              <a href={link.href} className='m-2 text-blue-700 hover:underline'>
-                {link.label}
-              </a>
+              <a href={link.href}>{link.label}</a>
             </li>
           ))}
         </ul>
       )}
     </div>
   );
+};
+
+const styles = {
+  button: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "4px",
+    backgroundColor: "transparent",
+    border: 0,
+    cursor: "pointer",
+    position: "relative",
+  },
+  border: {
+    width: "30px",
+    height: "1px",
+    backgroundColor: "black",
+  },
+  menu: {
+    position: "absolute",
+    width: "100%",
+    right: 0,
+    left: 0,
+    backgroundColor: "blanchedalmond",
+    display: "flex",
+    flexDirection: "column",
+    gap: "8px",
+    boxSizing: "border-box",
+    listStyle: "none",
+  },
 };
