@@ -1,21 +1,21 @@
 import { useState } from "preact/hooks";
-import Styles from "./hamburger-menu.module.css";
+import "./hamburger-menu.css";
 
 export const HamburgerMenu = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <button
-        className={Styles.button}
+        className='button'
         type='button'
         onClick={() => setIsOpen((bool) => !bool)}
       >
-        <span className={Styles.border}></span>
-        <span className={Styles.border}></span>
-        <span className={Styles.border}></span>
+        <span className='border'></span>
+        <span className='border'></span>
+        <span className='border'></span>
       </button>
       {isOpen && (
-        <ul className={Styles.menu}>
+        <ul className='menu'>
           {links.map((link) => (
             <li>
               <a href={link.href}>{link.label}</a>
