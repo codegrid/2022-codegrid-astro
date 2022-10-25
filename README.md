@@ -7,7 +7,7 @@ CodeGrid 連載、[今すぐ始める Astro 入門](https://www.codegrid.net/ser
 初回は npm パッケージのインストールをお願いします。
 
 ```shell
-npm run install
+npm install
 ```
 
 開発環境立ち上げ
