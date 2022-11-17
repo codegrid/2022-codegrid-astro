@@ -7,6 +7,7 @@ export const HamburgerMenu = ({ links }) => {
         type='button'
         onClick={() => setIsOpen((bool) => !bool)}
         className='flex flex-col gap-1 cursor-pointer relative'
+        title='ハンバーガメニュー'
       >
         {[...Array(3)].map((_, index) => (
           <span key={index} className='w-7 h-px bg-black block'></span>
@@ -16,7 +17,7 @@ export const HamburgerMenu = ({ links }) => {
         <ul className='absolute w-screen inset-x-0 bg-orange-200 flex flex-col gap-2 top-20'>
           {links.map((link) => (
             <li>
-              <a href={link.href} className='m-2 text-blue-700 hover:underline'>
+              <a href={link.href} className='text-blue-700 hover:underline'>
                 {link.label}
               </a>
             </li>
