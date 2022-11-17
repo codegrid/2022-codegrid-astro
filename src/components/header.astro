@@ -8,22 +8,22 @@ const links = [
 ];
 ---
 
-<nav class='bg-orange-200 flex justify-between items-center p-8'>
-  <h1 class='text-xl'>
+<nav class="flex items-center justify-between bg-orange-200 p-8">
+  <h1 class="text-xl">
     {title}
   </h1>
-  <ul class='hidden md:flex gap-3'>
+  <ul class="hidden gap-3 md:flex">
     {
       links.map((item) => (
         <li>
-          <a href={item.href} class='text-blue-700 hover:underline'>
+          <a href={item.href} class="text-blue-700 hover:underline">
             {item.label}
           </a>
         </li>
       ))
     }
   </ul>
-  <div class='md:hidden'>
+  <div class="md:hidden">
     <HamburgerMenu links={links} client:load />
   </div>
 </nav>

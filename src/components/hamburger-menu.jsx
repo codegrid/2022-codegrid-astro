@@ -4,20 +4,20 @@ export const HamburgerMenu = ({ links }) => {
   return (
     <div>
       <button
-        type='button'
+        type="button"
         onClick={() => setIsOpen((bool) => !bool)}
-        className='flex flex-col gap-1 cursor-pointer relative'
-        title='ハンバーガメニュー'
+        className="relative flex cursor-pointer flex-col gap-1"
+        title="ハンバーガメニュー"
       >
         {[...Array(3)].map((_, index) => (
-          <span key={index} className='w-7 h-px bg-black block'></span>
+          <span key={index} className="block h-px w-7 bg-black"></span>
         ))}
       </button>
       {isOpen && (
-        <ul className='absolute w-screen inset-x-0 bg-orange-200 flex flex-col gap-2 top-20'>
+        <ul className="absolute inset-x-0 top-20 flex w-screen flex-col gap-2 bg-orange-200">
           {links.map((link) => (
             <li>
-              <a href={link.href} className='text-blue-700 hover:underline'>
+              <a href={link.href} className="text-blue-700 hover:underline">
                 {link.label}
               </a>
             </li>
