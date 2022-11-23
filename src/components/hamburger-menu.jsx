@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import { css } from "goober";
-
+import { CSS_SPACING_PX4, CSS_SPACING_PX8 } from "../constants";
 export const HamburgerMenu = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -31,7 +31,7 @@ export const HamburgerMenu = ({ links }) => {
 const buttonStyle = () => css`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: ${CSS_SPACING_PX4};
   background-color: transparent;
   border: 0;
   cursor: pointer;
@@ -52,7 +52,7 @@ const menuStyle = () => css`
   background-color: blanchedalmond;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: ${CSS_SPACING_PX8};
   box-sizing: border-box;
   list-style: none;
 `;
