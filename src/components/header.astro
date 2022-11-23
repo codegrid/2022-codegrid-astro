@@ -1,6 +1,7 @@
 ---
 import { HamburgerMenu } from "../components/hamburger-menu.jsx";
-import { CSS_SPACING_PX8, CSS_SPACING_PX12 } from "../constants.js";
+import { CSS_SPACING } from "../constants.js";
+import { converter } from "../libs/converter.js";
 const title = Astro.props.title;
 const links = [
   { href: "/", label: "トップ" },
@@ -24,7 +25,7 @@ const links = [
     <HamburgerMenu links={links} client:visible />
   </div>
 </nav>
-<style define:vars={{ CSS_SPACING_PX8, CSS_SPACING_PX12 }}>
+<style define:vars={converter({ CSS_SPACING })}>
   .header {
     background-color: blanchedalmond;
     display: flex;
