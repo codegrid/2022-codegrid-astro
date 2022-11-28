@@ -1,10 +1,13 @@
-export const converter = (_obj) => {
-  const obj = {};
-  for (const prefix of Object.keys(_obj)) {
-    for (const [name, value] of Object.entries(_obj[prefix])) {
-      obj[`${prefix}_${name}`] = value;
+export const converter = (obj, prefix = "") => {
+  let result = {};
+  let resultKey = prefix;
+  for (const [key, value] of Object.entries(obj)) {
+    resultKey = prefix ? `${prefix}_${key}` : key;
+    if (value !== null && typeof value === "object") {
+      Object.assign(result, converter(value, resultKey));
+    } else {
+      result[resultKey] = value;
     }
   }
-
-  return obj;
+  return result;
 };
