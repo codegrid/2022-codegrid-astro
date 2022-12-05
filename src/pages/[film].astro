@@ -1,0 +1,15 @@
+---
+export const getStaticPaths = async () => {
+  const response = await fetch("https://swapi.dev/api/films");
+  const data: { results: { title: string }[] } = await response.json();
+  const films = data.results;
+  return films.map(({ title }) => {
+    return {
+      params: { film: title },
+    };
+  });
+};
+const { film } = Astro.params;
+---
+
+<p>{film}</p>
