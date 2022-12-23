@@ -1,0 +1,15 @@
+---
+import staffs from "../assets/staffs.json";
+export const getStaticPaths = async () => {
+  return staffs.map(({ name }) => {
+    return {
+      params: { staff: name },
+    };
+  });
+};
+const { staff } = Astro.params;
+const staffData = staffs.find(({ name }) => staff === name);
+---
+
+<p>{staffData.name}</p>
+<p>{staffData.job}</p>
