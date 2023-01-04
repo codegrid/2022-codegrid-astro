@@ -1,14 +1,17 @@
 [
   {
-    "name": "yuto_nakano",
-    "job": "jamstack_engineer"
+    "name": "中野 祐人",
+    "job": "jamstackエンジニア",
+    "slug": "yuto-nakano"
   },
   {
-    "name": "kyousuke_nakamura",
-    "job": "jamstack_enginner"
+    "name": "中村 享介",
+    "job": "jamstackエンジニア",
+    "slug": "kyosuke-nakamura"
   },
   {
-    "name": "takazudo_takeshi",
-    "job": "director"
+    "name": "高津戸 壮",
+    "job": "ディレクター",
+    "slug": "takazudo-takeshi"
   }
 ]

@@ -1,15 +1,24 @@
 ---
 import staffs from "../assets/staffs.json";
 export const getStaticPaths = async () => {
-  return staffs.map(({ name }) => {
+  return staffs.map(({ slug }) => {
     return {
-      params: { staff: name },
+      params: { staff: slug },
     };
   });
 };
 const { staff } = Astro.params;
-const staffData = staffs.find(({ name }) => staff === name);
+const staffData = staffs.find(({ slug }) => staff === slug);
 ---
 
-<p>{staffData.name}</p>
-<p>{staffData.job}</p>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>{staffData.name}</title>
+  </head>
+
+  <p>{staffData.name}</p>
+  <p>{staffData.job}</p>
+
+
+</html>
