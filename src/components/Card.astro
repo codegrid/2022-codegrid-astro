@@ -1,0 +1,25 @@
+---
+const { date, title, link } = Astro.props;
+---
+
+<li>
+  <time>{date}</time>
+  <h2><a href={link}>{title}</a></h2>
+</li>
+<style>
+  li {
+    list-style: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+  }
+  time {
+    font-size: 12px;
+  }
+  h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+  a {
+    color: black;
+  }
+</style>

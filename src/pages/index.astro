@@ -1,0 +1,44 @@
+---
+import Card from "../components/Card.astro";
+import image from "../nakano.avif";
+const careers = await Astro.glob("../pages/career/*.md");
+console.log(careers);
+---
+
+<html lang='ja'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <title>yuto343.net</title>
+    <meta name='description' content='' />
+  </head>
+  <body>
+    <div class='container'>
+      <img src={image} class='img' />
+      <p>Yuto Nakano</p>
+      <div>
+        {
+          careers.map((career) => (
+            <Card
+              title={career.frontmatter.title}
+              date={career.frontmatter.date}
+              link={career.url}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </body>
+</html>
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .img {
+    border-radius: 100%;
+    width: 120px;
+  }
+</style>
