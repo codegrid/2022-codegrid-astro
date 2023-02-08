@@ -1,7 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 import image from "../nakano.avif";
 const careers = await Astro.glob("../pages/career/*.md");
+const careers2 = await getCollection("careers");
+console.log(careers2);
 ---
 
 <html lang='ja'>
