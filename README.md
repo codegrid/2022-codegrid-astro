@@ -1,4 +1,4 @@
-## 今すぐ始める Astro 入門 11 回目サンプルコード
+## 今すぐ始める Astro 入門 12 回目サンプルコード
 
 CodeGrid 連載、[今すぐ始める Astro 入門](https://www.codegrid.net/series/2022-astro)シリーズのサンプルコードです。
 
