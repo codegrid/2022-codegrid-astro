@@ -1,7 +1,21 @@
 ---
-import Header from "../components/Header.astro";
+import Header from "../../components/Header.astro";
+import { getCollection, CollectionEntry } from "astro:content";
 
-const { frontmatter } = Astro.props;
+interface Props {
+  career: CollectionEntry<"careers">;
+}
+
+export async function getStaticPaths() {
+  const careers = await getCollection("careers");
+  return careers.map((career) => ({
+    params: { career: career.slug },
+    props: { career },
+  }));
+}
+
+const { career } = Astro.props;
+const { Content } = await career.render();
 ---
 
 <!DOCTYPE html>
@@ -10,15 +24,15 @@ const { frontmatter } = Astro.props;
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <title>{frontmatter.title}</title>
+    <title>{career.data.title}</title>
   </head>
   <body>
     <Header />
     <div class='container'>
-      <time>{frontmatter.date}</time>
-      <h1>{frontmatter.title}</h1>
+      <time>{career.data.date}</time>
+      <h1>{career.data.title}</h1>
       <div class='content'>
-        <slot />
+        <Content />
       </div>
     </div>
   </body>

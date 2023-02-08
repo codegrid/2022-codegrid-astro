@@ -2,9 +2,8 @@
 import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 import image from "../nakano.avif";
-const careers = await Astro.glob("../pages/career/*.md");
-const careers2 = await getCollection("careers");
-console.log(careers2);
+
+const careers = await getCollection("careers");
 ---
 
 <html lang='ja'>
@@ -22,9 +21,9 @@ console.log(careers2);
         {
           careers.map((career) => (
             <Card
-              title={career.frontmatter.title}
-              date={career.frontmatter.date}
-              link={career.url}
+              title={career.data.title}
+              date={career.data.date}
+              link={`/careers/${career.slug}`}
             />
           ))
         }
