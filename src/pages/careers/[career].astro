@@ -1,6 +1,8 @@
 ---
 import Header from "../../components/Header.astro";
 import { getCollection, CollectionEntry } from "astro:content";
+import { date } from "astro/zod";
+import { formatDate } from "../../libs/date";
 
 interface Props {
   career: CollectionEntry<"careers">;
@@ -29,15 +31,7 @@ const { Content } = await career.render();
   <body>
     <Header />
     <div class='container'>
-      <time
-        >{
-          career.data.date.toLocaleString("ja", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-          })
-        }</time
-      >
+      <time>{formatDate(career.data.date)}</time>
       <h1>{career.data.title}</h1>
       <div class='content'>
         <Content />
