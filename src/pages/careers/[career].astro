@@ -29,7 +29,15 @@ const { Content } = await career.render();
   <body>
     <Header />
     <div class='container'>
-      <time>{career.data.date}</time>
+      <time
+        >{
+          career.data.date.toLocaleString("ja", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          })
+        }</time
+      >
       <h1>{career.data.title}</h1>
       <div class='content'>
         <Content />

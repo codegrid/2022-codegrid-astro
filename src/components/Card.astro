@@ -3,7 +3,15 @@ const { date, title, link } = Astro.props;
 ---
 
 <li>
-  <time>{date}</time>
+  <time
+    >{
+      date.toLocaleString("ja", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })
+    }</time
+  >
   <h2><a href={link}>{title}</a></h2>
 </li>
 <style>
